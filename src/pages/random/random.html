@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Random</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding scrollbar-y-auto>
+  <div class="center">
+    <button ion-button class="random" (click)='getRandom()'><span class="randomtitle">Click here for 10 Random words</span></button>
+  </div>
+  <div class="entry-container" *ngIf="entries">
+    <entry-list [entries]="entries"></entry-list>
+  </div>
+</ion-content>

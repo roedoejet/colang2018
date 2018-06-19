@@ -1,0 +1,45 @@
+<!--<ion-list>
+  <div>
+    <ion-item *ngFor="let entry of entries">
+      {{ entry.word[0] }} - {{ entry.definition[0]}}
+    </ion-item>
+  </div>
+</ion-list>-->
+<div id="browseEntries" class="browseElements">
+  <ion-list>
+    <div>
+      <ion-item class="matchContainer" (click)="showModal(entry)" *ngFor="let entry of entries" text-wrap>
+        <ion-checkbox color="danger" checked="false" *ngIf="edit" [(ngModel)]="entry.checked"></ion-checkbox>
+        <ion-label>
+          <div class="matchLeftContainer">
+            <span class="response matchLeftDiv" [ngClass]="{'langMatched': entry.type === 'git' && pageName === 'Search'}">{{entry.word}}</span>
+          </div>
+          <div class="matchRightContainer">
+            <span class="response matchRightDiv" [innerHTML]="highlight(entry.definition)"></span>
+          </div>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</div>
+
+<!--<div class="list">
+  <label class="item item-input item-select" ng-show="categoryNames.length > 1">
+                <div class="input-label wrapword">
+                    Select a Category
+                </div>
+                <select data-ng-model="selectedCategory" ng-change="categorySelect()">
+                    <option data-ng-repeat="category in displayCategories" value="{{$index}}">{{category}}
+                    </option>
+                </select>
+            </label>
+  <label class="item item-input item-select">
+                <div class="input-label">
+                    Select a Letter
+                </div>
+                <select data-ng-init="letterScroll" ng-model="selectedLetter" ng-change="letterSelect()">
+                    <option data-ng-repeat="letter in scroll" value="{{$index}}" ng-if="letterInit($index)">{{letter}}
+                    </option>
+                </select>
+            </label>
+</div>-->

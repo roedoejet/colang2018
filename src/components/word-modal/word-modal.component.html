@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Word Info
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <div *ngIf="displayImages">
+      <img (click)="playAudio(entry)" [(src)]="image" onError="this.src='assets/img/default.png'" *ngIf="entry.img" />
+    </div>
+    <ion-card-content>
+      <ion-card-title>
+        {{entry.word}}
+      </ion-card-title>
+      <p class="definition">
+        {{entry.definition}}
+      </p>
+
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>
