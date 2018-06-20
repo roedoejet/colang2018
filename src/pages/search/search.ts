@@ -26,12 +26,13 @@ export class Search {
     var results = []
     var re = new RegExp(this.searchQuery, 'i')
     for (let entry of this.entries) {
-      if (re.test(entry.definition[0])) {
+      console.log(entry.definition)
+      if (re.test(entry.definition)) {
         results.push(entry)
       }
     }
     let sorted_answers = results.sort(function (a, b) {
-      return a["displayDefinition"][0].length - b["displayDefinition"][0].length;
+      return a["definition"].length - b["definition"].length;
     });
     return (sorted_answers.slice(0, 9))
   };

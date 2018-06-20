@@ -529,12 +529,13 @@ var Search = /** @class */ (function () {
         var re = new RegExp(this.searchQuery, 'i');
         for (var _i = 0, _a = this.entries; _i < _a.length; _i++) {
             var entry = _a[_i];
-            if (re.test(entry.definition[0])) {
+            console.log(entry.definition);
+            if (re.test(entry.definition)) {
                 results.push(entry);
             }
         }
         var sorted_answers = results.sort(function (a, b) {
-            return a["displayDefinition"][0].length - b["displayDefinition"][0].length;
+            return a["definition"].length - b["definition"].length;
         });
         return (sorted_answers.slice(0, 9));
     };
@@ -585,9 +586,10 @@ var Search = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-search',template:/*ion-inline-start:"C:\Users\pinea\colang-mtd-template\src\pages\search\search.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Search</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding scrollbar-y-auto>\n\n  <ion-searchbar (ionInput)="getResults()" [(ngModel)]="searchQuery" autocapitalize="none" type="url"></ion-searchbar>\n\n  <div *ngIf="searchQuery?.length > 1">\n\n    <div class="result-container" *ngIf="matches?.length > 0">\n\n      <h4>Matches</h4>\n\n      <entry-list [entries]="matches" [searchterm]="searchQuery"></entry-list>\n\n    </div>\n\n    <div class="result-container" *ngIf="partMatches?.length > 0">\n\n      <h4>Partial Matches</h4>\n\n      <entry-list [entries]="partMatches" [searchterm]="searchQuery"></entry-list>\n\n    </div>\n\n    <div class="result-container" *ngIf="maybeMatches?.length > 0">\n\n      <h4>Maybe you meant this?</h4>\n\n      <entry-list [entries]="maybeMatches" [searchterm]="searchQuery"></entry-list>\n\n    </div>\n\n    <div class="result-container" *ngIf="matches?.length === 0 && partMatches?.length === 0 && maybeMatches?.length === 0">\n\n      <h4>Sorry we couldn\'t find any words that match "{{ searchQuery }}"</h4>\n\n    </div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\pinea\colang-mtd-template\src\pages\search\search.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object])
     ], Search);
     return Search;
+    var _a;
 }());
 
 //# sourceMappingURL=search.js.map
